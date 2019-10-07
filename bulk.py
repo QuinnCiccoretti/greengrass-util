@@ -147,7 +147,8 @@ class Bulk(object):
     def list_core_definitions(self):
         all_core_definitions = self._gg.list_core_definitions()["Definitions"]
         for core_def in all_core_definitions:
-            print(core_def)
+            if "Name" in core_def:
+                print(core_def["Name"])
     # get core def from group name with sad looping
     # constant time is impossible as aws does not index these things
     def get_core_definition(self, group_name):
